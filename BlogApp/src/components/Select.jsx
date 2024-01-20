@@ -9,7 +9,7 @@ export default forwardRef(function Select({
     const id = useId();
     return(
         <div className="w-full">
-            {label && <label className="" htmlFor={id}></label>}
+            {label && <label className="" htmlFor={id}>{label}</label>}
             {options?.map((option)=>(<option key={option} value={option}>{option}</option>))}
         </div>
     )

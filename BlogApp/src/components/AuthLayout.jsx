@@ -6,7 +6,7 @@ export default function Protected({childern,authentication = true}){
     const navigate = useNavigate();
     const authStatus = useSelector(state => state.auth.status);
 
-    // Easy underStanding
+    // Easy underStanding 
     // useEffect(()=>{
     //     if(authStatus === "true"){
     //         navigate("/")
@@ -17,12 +17,13 @@ export default function Protected({childern,authentication = true}){
     //     setLoader(false)
     // },[authStatus,navigate,authentication])
 
-    useEffect(()=>{if(authentication && authStatus !== authentication){
+    useEffect(()=>{
+        if(authentication && authStatus !== authentication){
         navigate("/login")
-    } else if(!authentication && authStatus !== authentication){
+        }else if(!authentication && authStatus !== authentication){
         navigate("/")
-    }
-    setLoader(false)
+        }
+        setLoader(false)
     }, [authStatus, navigate, authentication])
 
     return loader ? <h1>Loading...</h1> : <>{childern}</>
